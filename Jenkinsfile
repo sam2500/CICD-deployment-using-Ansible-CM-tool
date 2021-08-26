@@ -19,7 +19,7 @@ pipeline {
         
         stage('Build Application') {
             steps {
-                sh 'mvn -f CICD-deployment-using-Ansible-CM-tool/pom.xml clean package'
+                sh 'mvn -f pom.xml clean package'
             }
             post {
                 success {
