@@ -45,7 +45,7 @@
     file:
       path: /opt/tomcat
       owner: devops
-      group: devops
+      group: sudo
       mode: "u+rwx,g+rx,o=rx"
       recurse: yes
       state: directory
