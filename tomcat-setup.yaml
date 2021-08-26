@@ -63,9 +63,11 @@
       enabled: true
       daemon_reload: true
   
-  - name: Copy War package from local to remote
-    copy:
-       src: /target/spring-maven-app-0.0.1-SNAPSHOT.war
-       dest: /opt/tomcat/webapps
-       remote_src: no
-       mode: 0755
+  - name: Queue build of a project in Jenkins
+  uri:
+    url: http://3.109.144.179:8080/job/war-deployment-using-Ansible-CM-tool/build?token=ansible
+    user: "{{ jenkins.user }}"
+    password: "{{ jenkins.password }}"
+    method: POST
+    force_basic_auth: no
+    status_code: 201
