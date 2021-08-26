@@ -13,7 +13,7 @@ pipeline {
 
 	stage('Git project checkout') {
         steps {
-               git branch: 'main', url: 'https://github.com/bipin115/CICD-deployment-using-Ansible-CM-tool.git'  
+               git branch: 'master', url: 'https://github.com/bipin115/CICD-deployment-using-Ansible-CM-tool.git'  
           }
         }
         
