@@ -34,7 +34,9 @@ pipeline {
 
         stage(' Applying Playbook to Configurig tomcat server on remote server'){
             steps {
-                sh "sudo ansible-playbook tomcat-setup.yaml"
+		    sh "pwd"
+		    sh "whoami"
+                sh "ansible-playbook tomcat-setup.yaml"
             }
         }
     }
