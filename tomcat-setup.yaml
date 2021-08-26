@@ -64,10 +64,10 @@
       daemon_reload: true
   
   - name: Queue build of a project in Jenkins
-  uri:
-    url: http://3.109.144.179:8080/job/deploy-war-package-remote-host/build?token=ansible
-    user: "{{ jenkins.user }}"
-    password: "{{ jenkins.password }}"
-    method: POST
-    force_basic_auth: no
-    status_code: 201
+    uri:
+      url: http://3.109.144.179:8080/job/deploy-war-package-remote-host/build?token=ansible
+      user: "{{ jenkins.user }}"
+      password: "{{ jenkins.password }}"
+      method: POST
+      force_basic_auth: no
+      status_code: 201
