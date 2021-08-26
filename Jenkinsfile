@@ -1,7 +1,10 @@
 pipeline {
     agent any
+	tools {
+    	maven 'Maven_Home'
+        jdk 'JDK_11'
+	}
     stages {
-	    
         stage('Initialize Git POLL SCM Feature') {
             steps {
                 //Enable remote triggers
