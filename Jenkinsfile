@@ -34,7 +34,7 @@ pipeline {
 
         stage(' Applying Playbook to Configurig tomcat server on remote server'){
             steps {
-                sh "su -i"
+                sh "sudo -i"
                 sh "su - devops"
                 sh "ansible-playbook tomcat-setup.yaml"
             }
