@@ -67,4 +67,5 @@
     copy:
        src: /target/spring-maven-app-0.0.1-SNAPSHOT.war
        dest: /opt/tomcat/webapps
+       remote_src: no
        mode: 0755
