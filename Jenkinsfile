@@ -1,6 +1,7 @@
 pipeline {
     agent any
     stages {
+	    
         stage('Initialize Git POLL SCM Feature') {
             steps {
                 //Enable remote triggers
@@ -10,15 +11,15 @@ pipeline {
             }
         }
 
-	    stage('Git project checkout') {
-           steps {
-                git branch: 'main', url: 'https://github.com/bipin115/CICD-deployment-using-Ansible-CM-tool.git'  
+	stage('Git project checkout') {
+        steps {
+               git branch: 'main', url: 'https://github.com/bipin115/CICD-deployment-using-Ansible-CM-tool.git'  
           }
         }
         
         stage('Build Application') {
             steps {
-                sh 'mvn -f java-tomcat-sample/pom.xml clean package'
+                sh 'mvn -f CICD-deployment-using-Ansible-CM-tool/pom.xml clean package'
             }
             post {
                 success {
