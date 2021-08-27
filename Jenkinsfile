@@ -20,22 +20,8 @@ pipeline {
           }
         }
         
-        stage('Build Application') {
-            steps {
-                sh 'mvn -f pom.xml clean package'
-            }
-            post {
-                success {
-                    echo "Now Archiving the Artifacts...."
-                    archiveArtifacts artifacts: '**/*.war'
-                }
-            }
-        }
-
         stage(' Applying Playbook to Configurig tomcat server on remote server'){
             steps {
-		    sh "pwd"
-		    sh "whoami"
                 sh "ansible-playbook tomcat-setup.yaml"
             }
         }
