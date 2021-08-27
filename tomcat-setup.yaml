@@ -67,3 +67,7 @@
     uri:
       url: http://13.235.24.128:8080/job/deploy-war-package-remote-host/build?token=ansible
       method: POST
+      user: "bipin115"
+      password: "4115"
+      force_basic_auth: yes
+      status_code: 201
