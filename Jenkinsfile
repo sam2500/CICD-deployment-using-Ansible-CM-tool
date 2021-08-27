@@ -24,6 +24,17 @@ pipeline {
             steps {
                 sh "ansible-playbook tomcat-setup.yaml"
             }
+		
+	stage(' Building WAR package from Java project'){
+            steps {
+                build 'deploy-war-package-remote-host'
+            }
+        }
+		
+	stage(' Deployig WAR package on remote tomcat server'){
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat-admin-deployment', path: '', url: 'http://13.233.154.169:8080/')], contextPath: '/', onFailure: false, war: 'spring-maven-app-0.0.1-SNAPSHOT.war'
+            }
         }
     }
 }
