@@ -24,6 +24,7 @@ pipeline {
             steps {
                 sh "ansible-playbook tomcat-setup.yaml"
             }
+	}
 		
 	stage(' Building WAR package from Java project'){
             steps {
