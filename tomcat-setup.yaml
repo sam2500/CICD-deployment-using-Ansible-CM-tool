@@ -66,8 +66,4 @@
   - name: Queue build of a project in Jenkins
     uri:
       url: http://13.235.24.128:8080/job/deploy-war-package-remote-host/build?token=ansible
-      user: ""
-      password: ""
       method: POST
-      force_basic_auth: no
-      status_code: 201
