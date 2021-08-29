@@ -41,7 +41,7 @@ pipeline {
 	stage(' Deployig WAR package on remote tomcat server'){
             steps {
                 //deploy adapters: [tomcat9(credentialsId: 'tomcat-admin-deployment', path: '', url: 'http://13.233.154.169:8080/')], contextPath: '/', onFailure: false, war: 'spring-maven-app-0.0.1-SNAPSHOT.war'
-		sh "scp -P 80 spring-maven-app-0.0.1-SNAPSHOT.war devops@15.207.98.117:/opt/tomcat/webapps"   
+		sh "scp /var/lib/jenkins/workspace/deploy-war-package-remote-host/target/spring-maven-app-0.0.1-SNAPSHOT.war devops@15.207.98.117:/opt/tomcat/webapps/"   
             }
         }
     }
