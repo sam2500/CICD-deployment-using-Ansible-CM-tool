@@ -27,5 +27,11 @@
       remote_src: yes
       extra_opts: [--strip-components=1]
 
+  - name: Copy the tomcat-users.xml file from master to remote host
+    copy: src=tomcat-users.xml dest=/opt/tomcat/conf/
+
+  - name: Copy the context.xml file from master to remote host
+    copy: src=context.xml dest=/opt/tomcat/webapps/manager/META-INF/
+  
   - name: Start and enable Tomcat service
     shell: nohup /opt/tomcat/bin/startup.sh
