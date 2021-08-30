@@ -36,19 +36,19 @@ pipeline {
             steps {
                 build 'deploy-war-package-remote-host'
             }
-	    post {
-                success {
-                    echo "Now Archiving the Artifacts...."
-                    archiveArtifacts artifacts: '**/*.war'
-                }
-            }
+// 	    post {
+//                 success {
+//                     echo "Now Archiving the Artifacts...."
+//                     archiveArtifacts artifacts: '**/*.war'
+//                 }
+//             }
         }
 		
-	//stage(' Deployig WAR package on remote tomcat server'){
-           // steps {
-             //   deploy adapters: [tomcat9(credentialsId: 'tomcat-admin-remote-deployment', path: '', url: 'http://3.109.200.185:8080/')], contextPath: '/', war: '**/*.war'
-		//sh "scp /var/lib/jenkins/workspace/deploy-war-package-remote-host/target/spring-maven-app-0.0.1-SNAPSHOT.war devops@15.207.98.117:/opt/tomcat/webapps/"   
-           // }
-        //}
+// 	stage(' Deployig WAR package on remote tomcat server'){
+//            steps {
+//              deploy adapters: [tomcat9(credentialsId: 'tomcat-admin-remote-deployment', path: '', url: 'http://3.109.200.185:8080/')], contextPath: '/', war: '**/*.war'
+// 	     sh "scp /var/lib/jenkins/workspace/deploy-war-package-remote-host/target/spring-maven-app-0.0.1-SNAPSHOT.war devops@15.207.98.117:/opt/tomcat/webapps/"   
+//            }
+//         }
     }
 }
