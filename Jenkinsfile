@@ -13,7 +13,13 @@ pipeline {
                 }  
             }
         }
-
+       
+        stage(' Clean existing workspace') {
+        steps {
+               cleanWs() 
+          }
+        }
+	    
 	stage('Git project checkout') {
         steps {
                git branch: 'master', url: 'https://github.com/bipin115/CICD-deployment-using-Ansible-CM-tool.git'  
