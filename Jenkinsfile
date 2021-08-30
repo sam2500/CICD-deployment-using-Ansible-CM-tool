@@ -32,7 +32,7 @@ pipeline {
             }
 	}
 		
-	stage(' Building WAR package from Java project'){
+	stage(' Building WAR package from Java project and deployig to remote Tomcat server'){
             steps {
                 build 'deploy-war-package-remote-host'
             }
@@ -44,11 +44,11 @@ pipeline {
             }
         }
 		
-	stage(' Deployig WAR package on remote tomcat server'){
-            steps {
-                deploy adapters: [tomcat9(credentialsId: 'tomcat-admin-remote-deployment', path: '', url: 'http://3.109.200.185:8080/')], contextPath: '/', war: '**/*.war'
+	//stage(' Deployig WAR package on remote tomcat server'){
+           // steps {
+             //   deploy adapters: [tomcat9(credentialsId: 'tomcat-admin-remote-deployment', path: '', url: 'http://3.109.200.185:8080/')], contextPath: '/', war: '**/*.war'
 		//sh "scp /var/lib/jenkins/workspace/deploy-war-package-remote-host/target/spring-maven-app-0.0.1-SNAPSHOT.war devops@15.207.98.117:/opt/tomcat/webapps/"   
-            }
-        }
+           // }
+        //}
     }
 }
